@@ -25,6 +25,7 @@ def receive_key_packet() -> bytes:
         server.settimeout(TIMEOUT)
         server.bind((HOST, KEY_PORT))
         server.listen(1)
+        print(f"kênh khóa: {HOST}:{KEY_PORT}", flush=True)  # QUAN TRỌNG: test tìm chuỗi này
         conn, _ = server.accept()
 
         with conn:
@@ -42,6 +43,7 @@ def receive_data_packet() -> bytes:
         server.settimeout(TIMEOUT)
         server.bind((HOST, DATA_PORT))
         server.listen(1)
+        print(f"kênh dữ liệu: {HOST}:{DATA_PORT}", flush=True)
         conn, _ = server.accept()
 
         with conn:
@@ -56,18 +58,18 @@ def main() -> None:
     lines = []
 
     line = f"[*] Receiver đang lắng nghe kênh khóa tại {HOST}:{KEY_PORT}"
-    print(line)
+    print(line, flush=True)
     lines.append(line)
 
     key_packet = receive_key_packet()
     key, iv = parse_key_packet(key_packet)
 
     line = "[+] Đã nhận AES key và IV."
-    print(line)
+    print(line, flush=True)
     lines.append(line)
 
     line = f"[*] Receiver đang lắng nghe kênh dữ liệu tại {HOST}:{DATA_PORT}"
-    print(line)
+    print(line, flush=True)
     lines.append(line)
 
     data_packet = receive_data_packet()
@@ -78,7 +80,7 @@ def main() -> None:
         raise ValueError("Ciphertext nhận được không khớp length header.")
 
     line = "[+] Đã nhận ciphertext."
-    print(line)
+    print(line, flush=True)
     lines.append(line)
 
     plaintext = decrypt_aes_cbc(key, iv, ciphertext)
@@ -89,8 +91,8 @@ def main() -> None:
         f"[+] Bản tin gốc: {message}",
     ])
 
-    print("[+] Đã giải mã thành công.")
-    print(f"[+] Bản tin gốc: {message}")
+    print("[+] Đã giải mã thành công.", flush=True)
+    print(f"[+] Bản tin gốc: {message}", flush=True)
 
     if OUTPUT_FILE:
         Path(OUTPUT_FILE).write_bytes(plaintext)
