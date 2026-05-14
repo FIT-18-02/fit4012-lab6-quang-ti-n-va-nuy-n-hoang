@@ -17,12 +17,12 @@ Lab này kế thừa ý tưởng từ Lab 3 DES Socket, nhưng nâng cấp theo 
 ## Team members
 
 - **Thành viên 1**:  Đặng Quang Tiến - MSSV: 1871020570
-- **Thành viên 2**: Nguyễn Hoàng - MSSV: 18710120250
+- **Thành viên 2**: Nguyễn Hoàng - MSSV: 1871020250
 
 ## Task division
 
 - **Thành viên 1 phụ trách chính**: Đặng Quang Tiến (msv: 1871020570)
-- **Thành viên 2 phụ trách chính**: Nguyễn Hoàng (msv: 18710120250)
+- **Thành viên 2 phụ trách chính**: Nguyễn Hoàng (msv: 1871020250)
 - **Phần làm chung**: Thiết kế protocol 2 kênh, tích hợp AES-CBC, viết/giải thích test & log
 
 ## Demo roles
