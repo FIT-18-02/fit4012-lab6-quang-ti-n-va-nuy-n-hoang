@@ -11,8 +11,8 @@ Thiết kế và triển khai hệ thống gửi/nhận dữ liệu qua TCP sock
 
 ## Phân công thực hiện
 
-- Sender (mã hóa + gửi 2 packet qua socket): Nguyễn Hoàng
-- Receiver (nhận + parse header + giải mã + ghi output/log): Đặng Quang Tiến
+- Sender (mã hóa + gửi 2 packet qua socket): Đặng Quang Tiến
+- Receiver (nhận + parse header + giải mã + ghi output/log): Nguyễn Hoàng
 - Test/log/threat model: cả hai cùng thực hiện và rà soát theo hợp đồng CI
 
 ## Cách làm
